@@ -19,15 +19,6 @@ Sudoku::Sudoku()
 
         val %= 9;
     }
-
-    /*for(int i = 0; i < 9; i++)
-    {
-        for(int j = 0; j < 9; j++)
-        {
-            std::cout << board[9*i + j].getVal() << " ";
-        }
-        std::cout << "\n";
-    }*/
 }
 
 void Sudoku::startGame()

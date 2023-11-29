@@ -11,10 +11,11 @@
 #define color_purple    0x911eb4
 #define color_magenta   0xf032e6
 
-#define boardSize       500
-#define thickLineWidth  0.03 * boardSize
-#define thinLineWidth   0.01 * boardSize
-#define squareSize      (boardSize - 3*thickLineWidth - 9*thinLineWidth) / 9
+#define boardSize           500
+#define thickLineWidth      0.03 * boardSize
+#define thinLineWidth       0.01 * boardSize
+#define squareSize          (boardSize - 3*thickLineWidth - 9*thinLineWidth) / 9
+#define cellContentsBorder  0.1 * squareSize
 
 void clear_screen(size_t color)
 {
@@ -25,31 +26,6 @@ void clear_screen(size_t color)
         {
             *currPixel++ = color;
         }
-    }
-}
-
-void drawNumber(int num, int x0, int y0, int x1, int y1, int color)
-{
-    switch(num)
-    {
-        case 1:
-            break;
-        case 2:
-            break;
-        case 3:
-            break;
-        case 4:
-            break;
-        case 5:
-            break;
-        case 6:
-            break;
-        case 7:
-            break;
-        case 8:
-            break;
-        case 9:
-            break;
     }
 }
 
@@ -71,12 +47,41 @@ void drawRectangle(int x0, int y0, int x1, int y1, int color)
     }
 }
 
+void drawNumber(int num, int x0, int y0, int x1, int y1, int color)
+{
+    int xDiff = (x0 - x1);
+    int yDiff = (x0 - x1);
+    switch(num)
+    {
+        case 1:
+            drawRectangle(x0, y0, x0 - (int)(3*xDiff/5), y0 - (int)(yDiff/5), color);
+            drawRectangle(x0 - (int)(2*xDiff/5), y0, x0 - (int)(3*xDiff/5), y1, color);
+            drawRectangle(x0, y0 - (int)(4*yDiff/5), x1 , y1, color);
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        case 5:
+            break;
+        case 6:
+            break;
+        case 7:
+            break;
+        case 8:
+            break;
+        case 9:
+            break;
+    }
+}
+
 void updateSquares()
 {
     int x = 2*thickLineWidth;
     int y = 2*thickLineWidth;
     int cellVal, cellColor;
-
 
     for(int i = 1; i < 10; i++)
     {
@@ -118,6 +123,7 @@ void updateSquares()
             }
 
             drawRectangle(x, y, x + squareSize, y + squareSize, cellColor);
+            drawNumber(1, x + cellContentsBorder, y + cellContentsBorder, x + squareSize - cellContentsBorder, y + squareSize - cellContentsBorder, color_black);
             x += squareSize;
             if(j % 3 == 0)
                 x += thickLineWidth;

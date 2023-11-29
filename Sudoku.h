@@ -13,16 +13,13 @@ class Sudoku
 {
     private:
         Cell board[81];
-        void setCell(size_t r, size_t c, size_t val);
-        bool isFull();
-        bool isValid(size_t r, size_t c, size_t val);
+        void randomizeBoard();
 
     public:
         Sudoku();
-        void randomizeBoard();
-        bool isWinner();
-        int getCell(int Id);
         void startGame();
+        int getCell(int Id);
+        bool isWinner();
 };
 
 #endif
