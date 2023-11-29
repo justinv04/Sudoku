@@ -1,0 +1,20 @@
+[
+{
+  "directory": "C:/Users/jvinc/OneDrive/Desktop/Stuff/Coding Files/C++ Code/Sudoku/build",
+  "command": "C:\\MinGW\\bin\\g++.exe   -g -std=gnu++1z -Wall -Wextra -pedantic -g -o CMakeFiles\\sudoku.dir\\main.cpp.obj -c \"C:\\Users\\jvinc\\OneDrive\\Desktop\\Stuff\\Coding Files\\C++ Code\\Sudoku\\main.cpp\"",
+  "file": "C:/Users/jvinc/OneDrive/Desktop/Stuff/Coding Files/C++ Code/Sudoku/main.cpp",
+  "output": "CMakeFiles/sudoku.dir/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/jvinc/OneDrive/Desktop/Stuff/Coding Files/C++ Code/Sudoku/build",
+  "command": "C:\\MinGW\\bin\\g++.exe   -g -std=gnu++1z -Wall -Wextra -pedantic -g -o CMakeFiles\\sudoku.dir\\Sudoku.cpp.obj -c \"C:\\Users\\jvinc\\OneDrive\\Desktop\\Stuff\\Coding Files\\C++ Code\\Sudoku\\Sudoku.cpp\"",
+  "file": "C:/Users/jvinc/OneDrive/Desktop/Stuff/Coding Files/C++ Code/Sudoku/Sudoku.cpp",
+  "output": "CMakeFiles/sudoku.dir/Sudoku.cpp.obj"
+},
+{
+  "directory": "C:/Users/jvinc/OneDrive/Desktop/Stuff/Coding Files/C++ Code/Sudoku/build",
+  "command": "C:\\MinGW\\bin\\g++.exe   -g -std=gnu++1z -Wall -Wextra -pedantic -g -o CMakeFiles\\sudoku.dir\\Cell.cpp.obj -c \"C:\\Users\\jvinc\\OneDrive\\Desktop\\Stuff\\Coding Files\\C++ Code\\Sudoku\\Cell.cpp\"",
+  "file": "C:/Users/jvinc/OneDrive/Desktop/Stuff/Coding Files/C++ Code/Sudoku/Cell.cpp",
+  "output": "CMakeFiles/sudoku.dir/Cell.cpp.obj"
+}
+]
