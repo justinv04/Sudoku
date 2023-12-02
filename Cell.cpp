@@ -2,40 +2,32 @@
 
 Cell::Cell()
 {
-    ID = 0;
-    value = 0;
-    currValue = 0;
+    keyValue = 0;
+    boardValue = 0;
+    correctValue = true;
     possibleValues = {};
     notedValues = {};
 }
 
-Cell::Cell(int val, int Id)
+void Cell::setKeyVal(int val)
 {
-    ID = Id;
-    value = val;
-    currValue = 0;
-    possibleValues = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-    notedValues = {};
+    keyValue = val;
 }
 
-void Cell::setVal(int val)
+void Cell::setBoardVal(int val)
 {
-    value = val;
+    boardValue = val;
+    boardValue == keyValue ? correctValue = true : correctValue = false;
 }
 
-void Cell::setCurrVal(int val)
+int Cell::getKeyVal()
 {
-    currValue = val;
+    return keyValue;
 }
 
-int Cell::getVal()
+int Cell::getBoardVal()
 {
-    return value;
-}
-
-int Cell::getCurrVal()
-{
-    return currValue;
+    return boardValue;
 }
 
 vector<int> Cell::getPVals()
@@ -46,4 +38,9 @@ vector<int> Cell::getPVals()
 vector<int> Cell::getNVals()
 {
     return notedValues;
+}
+
+bool Cell::isCorrectValue()
+{
+    return correctValue;
 }

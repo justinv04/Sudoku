@@ -8,19 +8,19 @@ using std::vector;
 class Cell
 {
     private:
-        int ID, value, currValue;
+        int keyValue, boardValue;
         vector<int> possibleValues, notedValues;
+        bool correctValue;
 
     public:
         Cell();
-        Cell(int val);
-        Cell(int val, int Id);
-        void setVal(int val);
-        void setCurrVal(int val);
-        int getVal();
-        int getCurrVal();
+        void setKeyVal(int val);
+        void setBoardVal(int val);
+        int getKeyVal();
+        int getBoardVal();
         vector<int> getPVals();
         vector<int> getNVals();
+        bool isCorrectValue();
 };
 
 #endif

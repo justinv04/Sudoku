@@ -3,20 +3,14 @@
 Sudoku::Sudoku()
 {
     int val = 0;
-    for(int i = 1; i < 82; i++)
+    for(int i = 0; i < 9; i++)
     {
-        board[i - 1].setVal(val + 1);
-
-        if(i % 9 == 0)
+        for(int j = 0; j < 9; j++)
         {
-            if(i % 27 == 0)
-                val += 5;
-            else
-                val += 4;
+            board[i][j].setKeyVal(val + 1);
+            val = (val + 1) % 9;
         }
-        else
-            val++;
-
+        i % 3 == 2 ? val += 4 : val += 3;
         val %= 9;
     }
 }
@@ -30,39 +24,47 @@ void Sudoku::randomizeBoard()
 {
     srand(time(0));
     Cell temp[9];
-
-    int r1, r2, i, j, k;
-
-    for(i = 0; i < 100; i++)
+    int r;
+    for(int i = 0; i < 100; i++)
     {
-        r1 = rand() % 3;
-        r2 = rand() % 3;
-        for(j = 0; j < 3; j++)
+        r = rand() % 3;
+        for(int l = rand() % 3; l > 0; l--)
         {
-            for(k = 0; k < 9; k++)
+            for(int j = 0; j < 9; j++)
             {
-                temp[k] = board[9*(r1 + 3*j) + k];
-                board[9*(r1 + 3*j) + k] = board[9*(r2 + 3*j) + k];
-                board[9*(r2 + 3*j) + k] = temp[k];
+                temp[j] = board[3*r][j];
+                board[3*r][j] = board[3*r + 1][j];
+                board[3*r + 1][j] = board[3*r + 2][j];
+                board[3*r + 2][j] = temp[j];
             }
-
-            for(k = 0; k < 9; k++)
-            {
-                temp[k] = board[9*k + (r1 + 3*j)];
-                board[9*k + (r1 + 3*j)] = board[9*k + (r2 + 3*j)];
-                board[9*k + (r2 + 3*j)] = temp[k];
-            }
-
         }
-        
+
+        for(int l = rand() % 3; l > 0; l--)
+        {
+            for(int j = 0; j < 9; j++)
+            {
+                temp[j] = board[j][3*r];
+                board[j][3*r] = board[j][3*r + 1];
+                board[j][3*r + 1] = board[j][3*r + 2];
+                board[j][3*r + 2] = temp[j];
+            }
+        }
     }
 }
 
-int Sudoku::getCell(int Id)
+int Sudoku::getCellKeyValue(int row, int col)
 {
-    return board[Id].getVal();
+    return board[row][col].getKeyVal();
 }
 
+int Sudoku::getCellBoardValue(int row, int col)
+{
+    return board[row][col].getBoardVal();
+}
 
+Cell* Sudoku::getCell(int row, int col)
+{
+    return &board[row][col];
+}
 
 

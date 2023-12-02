@@ -9,13 +9,15 @@
 #define color_cyan      0x42d4f4
 #define color_blue      0x4363d8
 #define color_purple    0x911eb4
-#define color_magenta   0xf032e6
+#define color_pink      0xf032e6
 
 #define boardSize           500
 #define thickLineWidth      0.03 * boardSize
 #define thinLineWidth       0.01 * boardSize
-#define squareSize          (boardSize - 3*thickLineWidth - 9*thinLineWidth) / 9
+#define squareSize          (int)((boardSize - (3*thickLineWidth) - (9*thinLineWidth)) / 9)
 #define cellContentsBorder  0.1 * squareSize
+
+#include "Cell.h"
 
 void clear_screen(size_t color)
 {
@@ -59,20 +61,54 @@ void drawNumber(int num, int x0, int y0, int x1, int y1, int color)
             drawRectangle(x0, y0 - (int)(4*yDiff/5), x1 , y1, color);
             break;
         case 2:
+            drawRectangle(x0, y0, x1, y0 - (int)(yDiff/5), color);
+            drawRectangle(x0, y0 - (int)(2*yDiff/5), x1, y0 - (int)(3*yDiff/5), color);
+            drawRectangle(x0, y0 - (int)(4*yDiff/5), x1, y1, color);
+            drawRectangle(x0 - (int)(4*xDiff/5), y0, x1, y0 - (int)(yDiff/2), color);
+            drawRectangle(x0, y0 - (int)(yDiff/2), x0 - (int)(xDiff/5), y1, color);
             break;
         case 3:
+            drawRectangle(x0, y0, x1, y0 - (int)(yDiff/5), color);
+            drawRectangle(x0, y0 - (int)(2*yDiff/5), x1, y0 - (int)(3*yDiff/5), color);
+            drawRectangle(x0, y0 - (int)(4*yDiff/5), x1, y1, color);
+            drawRectangle(x0 - (int)(4*xDiff/5), y0, x1, y1, color);
             break;
         case 4:
+            drawRectangle(x0, y0 - (int)(2*yDiff/5), x1, y0 - (int)(3*yDiff/5), color);
+            drawRectangle(x0 - (int)(4*xDiff/5), y0, x1, y1, color);
+            drawRectangle(x0, y0, x0 - (int)(xDiff/5), y0 - (int)(yDiff/2), color);
             break;
         case 5:
+            drawRectangle(x0, y0, x1, y0 - (int)(yDiff/5), color);
+            drawRectangle(x0, y0 - (int)(2*yDiff/5), x1, y0 - (int)(3*yDiff/5), color);
+            drawRectangle(x0, y0 - (int)(4*yDiff/5), x1, y1, color);
+            drawRectangle(x0 - (int)(4*xDiff/5), y0  - (int)(yDiff/2), x1, y1, color);
+            drawRectangle(x0, y0, x0 - (int)(xDiff/5), y0  - (int)(yDiff/2), color);
             break;
         case 6:
+            drawRectangle(x0, y0, x1, y0 - (int)(yDiff/5), color);
+            drawRectangle(x0, y0 - (int)(2*yDiff/5), x1, y0 - (int)(3*yDiff/5), color);
+            drawRectangle(x0, y0 - (int)(4*yDiff/5), x1, y1, color);
+            drawRectangle(x0 - (int)(4*xDiff/5), y0  - (int)(yDiff/2), x1, y1, color);
+            drawRectangle(x0, y0, x0 - (int)(xDiff/5), y1, color);
             break;
         case 7:
+            drawRectangle(x0, y0, x1, y0 - (int)(yDiff/5), color);
+            drawRectangle(x0 - (int)(4*xDiff/5), y0, x1, y1, color);
             break;
         case 8:
+            drawRectangle(x0, y0, x1, y0 - (int)(yDiff/5), color);
+            drawRectangle(x0, y0 - (int)(2*yDiff/5), x1, y0 - (int)(3*yDiff/5), color);
+            drawRectangle(x0, y0 - (int)(4*yDiff/5), x1, y1, color);
+            drawRectangle(x0 - (int)(4*xDiff/5), y0, x1, y1, color);
+            drawRectangle(x0, y0, x0 - (int)(xDiff/5), y1, color);
             break;
         case 9:
+            drawRectangle(x0, y0, x1, y0 - (int)(yDiff/5), color);
+            drawRectangle(x0, y0 - (int)(2*yDiff/5), x1, y0 - (int)(3*yDiff/5), color);
+            drawRectangle(x0, y0 - (int)(4*yDiff/5), x1, y1, color);
+            drawRectangle(x0 - (int)(4*xDiff/5), y0, x1, y1, color);
+            drawRectangle(x0, y0, x0 - (int)(xDiff/5), y0 - (int)(yDiff/2), color);
             break;
     }
 }
@@ -81,51 +117,21 @@ void updateSquares()
 {
     int x = 2*thickLineWidth;
     int y = 2*thickLineWidth;
-    int cellVal, cellColor;
+    Cell* currCell;
 
-    for(int i = 1; i < 10; i++)
+    for(int i = 0; i < 9; i++)
     {
-        for(int j = 1; j < 10; j++)
+        for(int j = 0; j < 9; j++)
         {
-            cellVal = gameState.sudokuGame.getCell(9*(i-1) + (j-1));
-            switch(cellVal)
-            {
-                case 1:
-                    cellColor = color_red;
-                    break;
-                case 2:
-                    cellColor = color_orange;
-                    break;
-                case 3:
-                    cellColor = color_yellow;
-                    break;
-                case 4:
-                    cellColor = color_lime;
-                    break;
-                case 5:
-                    cellColor = color_green;
-                    break;
-                case 6:
-                    cellColor = color_cyan;
-                    break;
-                case 7:
-                    cellColor = color_blue;
-                    break;
-                case 8:
-                    cellColor = color_purple;
-                    break;
-                case 9:
-                    cellColor = color_magenta;
-                    break;
-                default:
-                    cellColor = color_white;
-                    break;
-            }
-
-            drawRectangle(x, y, x + squareSize, y + squareSize, cellColor);
-            drawNumber(1, x + cellContentsBorder, y + cellContentsBorder, x + squareSize - cellContentsBorder, y + squareSize - cellContentsBorder, color_black);
+            currCell = gameState.sudokuGame.getCell(i, j);
+            drawRectangle(x, y, x + squareSize, y + squareSize, color_white);
+            if(currCell->isCorrectValue())
+                drawNumber(currCell->getBoardVal(), x + cellContentsBorder, y + cellContentsBorder, x + squareSize - cellContentsBorder, y + squareSize - cellContentsBorder, color_blue);
+            else
+                drawNumber(currCell->getBoardVal(), x + cellContentsBorder, y + cellContentsBorder, x + squareSize - cellContentsBorder, y + squareSize - cellContentsBorder, color_red);
+                    
             x += squareSize;
-            if(j % 3 == 0)
+            if(j % 3 == 2)
                 x += thickLineWidth;
             else
                 x += thinLineWidth;
@@ -133,7 +139,7 @@ void updateSquares()
 
         x = 2*thickLineWidth;
         y += squareSize;
-        if(i % 3 == 0)
+        if(i % 3 == 2)
             y += thickLineWidth;
         else
             y += thinLineWidth;
