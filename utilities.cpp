@@ -11,3 +11,4 @@ inline int clamp(int min, int val, int max)
     if(val > max) return max;
     return val;
 }
+

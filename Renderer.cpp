@@ -11,10 +11,10 @@
 #define color_purple    0x911eb4
 #define color_pink      0xf032e6
 
-#define boardSize           500
+#define boardSize           min(gameState.height, gameState.width)
 #define thickLineWidth      0.03 * boardSize
 #define thinLineWidth       0.01 * boardSize
-#define squareSize          (int)((boardSize - (3*thickLineWidth) - (9*thinLineWidth)) / 9)
+#define squareSize          (int)((boardSize - (3 * thickLineWidth) - (9 * thinLineWidth)) / 9)
 #define cellContentsBorder  0.1 * squareSize
 
 #include "Cell.h"
@@ -115,8 +115,7 @@ void drawNumber(int num, int x0, int y0, int x1, int y1, int color)
 
 void updateSquares()
 {
-    int x = 2*thickLineWidth;
-    int y = 2*thickLineWidth;
+    int x = thickLineWidth, y = thickLineWidth;
     Cell* currCell;
 
     for(int i = 0; i < 9; i++)
@@ -137,7 +136,7 @@ void updateSquares()
                 x += thinLineWidth;
         }
 
-        x = 2*thickLineWidth;
+        x = thickLineWidth;
         y += squareSize;
         if(i % 3 == 2)
             y += thickLineWidth;
@@ -148,6 +147,6 @@ void updateSquares()
 
 void drawGameBoard()
 {
-    drawRectangle(thickLineWidth, thickLineWidth, thickLineWidth + boardSize, thickLineWidth + boardSize, color_black);
+    drawRectangle(0, 0, boardSize, boardSize, color_black);
     updateSquares();
 }

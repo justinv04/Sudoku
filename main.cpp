@@ -40,7 +40,7 @@ std::vector<int> getCellUnderMouse()
 {
     std::vector<int> cellID = {-1, -1};
     int x = gameState.xPos, y = gameState.yPos, i;
-    x -= 2*thickLineWidth, y-= 2*thickLineWidth;
+    x -= thickLineWidth, y-= thickLineWidth;
     for(i = 0; i < 9; i++)
     {   
         if(x < i * (squareSize + thinLineWidth) + (i / 3)*(thickLineWidth - thinLineWidth) + squareSize)
@@ -119,7 +119,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR args, int
 
     HWND gameWindow = CreateWindowW(SudokuGameWindow.lpszClassName, L"Sudoku",
                                     WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT,
-                                    CW_USEDEFAULT, boardSize + 3*thickLineWidth, boardSize + 3*thickLineWidth + 25,
+                                    CW_USEDEFAULT, 500, 500 + 23,
                                     0, 0, hInstance, 0);
     HDC hdc = GetDC(gameWindow);
     
