@@ -84,7 +84,7 @@ LRESULT CALLBACK SudokuGameProcedure(HWND hWindowHandle, UINT Message, WPARAM wP
             if(cellID.at(0) == -1 || cellID.at(1) == -1)
                 break;
             Cell* selectedCell = gameState.sudokuGame.getCell(cellID.at(0), cellID.at(1));
-            if(wParam - 48 > 0 && wParam - 48 < 10)
+            if(wParam - 48 >= 0 && wParam - 48 < 10)
                 selectedCell->setBoardVal(wParam - 48);
             break;
         }
@@ -119,7 +119,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR args, int
 
     HWND gameWindow = CreateWindowW(SudokuGameWindow.lpszClassName, L"Sudoku",
                                     WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT,
-                                    CW_USEDEFAULT, 500, 500 + 23,
+                                    CW_USEDEFAULT, 500, 523,
                                     0, 0, hInstance, 0);
     HDC hdc = GetDC(gameWindow);
     
@@ -139,9 +139,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR args, int
         clear_screen(color_white);
         drawGameBoard();
 
-
         //  Render
-        StretchDIBits(hdc, 0, 0, gameState.width, gameState.height, 0, 0, gameState.width, gameState.height, gameState.memory, &gameState.bitmap_info, DIB_RGB_COLORS, SRCCOPY);
+        StretchDIBits(hdc, 0, 0, gameState.width, gameState.height,
+                      0, 0, gameState.width, gameState.height, gameState.memory,
+                      &gameState.bitmap_info, DIB_RGB_COLORS, SRCCOPY);
     }
     return 0;
 }

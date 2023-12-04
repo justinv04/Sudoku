@@ -113,7 +113,7 @@ void drawNumber(int num, int x0, int y0, int x1, int y1, int color)
     }
 }
 
-void updateSquares()
+void drawSquares()
 {
     int x = thickLineWidth, y = thickLineWidth;
     Cell* currCell;
@@ -123,6 +123,7 @@ void updateSquares()
         for(int j = 0; j < 9; j++)
         {
             currCell = gameState.sudokuGame.getCell(i, j);
+
             drawRectangle(x, y, x + squareSize, y + squareSize, color_white);
             if(currCell->isCorrectValue())
                 drawNumber(currCell->getBoardVal(), x + cellContentsBorder, y + cellContentsBorder, x + squareSize - cellContentsBorder, y + squareSize - cellContentsBorder, color_blue);
@@ -138,15 +139,12 @@ void updateSquares()
 
         x = thickLineWidth;
         y += squareSize;
-        if(i % 3 == 2)
-            y += thickLineWidth;
-        else
-            y += thinLineWidth;
+        i % 3 == 2 ? y += thickLineWidth : y += thinLineWidth;
     }
 }
 
 void drawGameBoard()
 {
-    drawRectangle(0, 0, boardSize, boardSize, color_black);
-    updateSquares();
+    drawRectangle(0, 0, 9*squareSize + 6*thinLineWidth + 4*thickLineWidth, 9*squareSize + 6*thinLineWidth + 4*thickLineWidth, color_black);
+    drawSquares();
 }
