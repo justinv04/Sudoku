@@ -122,7 +122,7 @@ void drawSquares()
     {
         for(int j = 0; j < 9; j++)
         {
-            currCell = gameState.sudokuGame.getCell(i, j);
+            currCell = gameState.minesweeperGame.getCell(i, j);
 
             drawRectangle(x, y, x + squareSize, y + squareSize, color_white);
             if(currCell->isCorrectValue())

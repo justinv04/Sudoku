@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/jvinc/OneDrive/Desktop/Stuff/Coding Files/C++ Code/Sudoku/build"
+			"value" : "c:/Users/jvinc/Minesweeper/Sudoku/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -155,10 +155,10 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
+					"value" : "CXX compiler"
 				}
 			],
-			"type" : "FILEPATH",
+			"type" : "STRING",
 			"value" : "C:/MinGW/bin/g++.exe"
 		},
 		{
@@ -299,10 +299,10 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
+					"value" : "C compiler"
 				}
 			],
-			"type" : "FILEPATH",
+			"type" : "STRING",
 			"value" : "C:/MinGW/bin/gcc.exe"
 		},
 		{
@@ -587,7 +587,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/jvinc/OneDrive/Desktop/Stuff/Coding Files/C++ Code/Sudoku/build/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/jvinc/Minesweeper/Sudoku/build/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -659,7 +659,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/jvinc/OneDrive/Desktop/Stuff/Coding Files/C++ Code/Sudoku"
+			"value" : "C:/Users/jvinc/Minesweeper/Sudoku"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1295,7 +1295,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/jvinc/OneDrive/Desktop/Stuff/Coding Files/C++ Code/Sudoku/build"
+			"value" : "C:/Users/jvinc/Minesweeper/Sudoku/build"
 		},
 		{
 			"name" : "Sudoku_IS_TOP_LEVEL",
@@ -1319,7 +1319,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/jvinc/OneDrive/Desktop/Stuff/Coding Files/C++ Code/Sudoku"
+			"value" : "C:/Users/jvinc/Minesweeper/Sudoku"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",

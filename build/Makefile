@@ -56,10 +56,10 @@ RM = C:\Users\jvinc\CMake\bin\cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\jvinc\OneDrive\Desktop\Stuff\Coding Files\C++ Code\Sudoku"
+CMAKE_SOURCE_DIR = C:\Users\jvinc\Minesweeper\Sudoku
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\jvinc\OneDrive\Desktop\Stuff\Coding Files\C++ Code\Sudoku\build"
+CMAKE_BINARY_DIR = C:\Users\jvinc\Minesweeper\Sudoku\build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\jvinc\OneDrive\Desktop\Stuff\Coding Files\C++ Code\Sudoku\build\CMakeFiles" "C:\Users\jvinc\OneDrive\Desktop\Stuff\Coding Files\C++ Code\Sudoku\build\\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\jvinc\Minesweeper\Sudoku\build\CMakeFiles C:\Users\jvinc\Minesweeper\Sudoku\build\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\jvinc\OneDrive\Desktop\Stuff\Coding Files\C++ Code\Sudoku\build\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\jvinc\Minesweeper\Sudoku\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -116,24 +116,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named sudoku
+# Target rules for targets named minesweeper
 
 # Build rule for target.
-sudoku: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 sudoku
-.PHONY : sudoku
+minesweeper: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 minesweeper
+.PHONY : minesweeper
 
 # fast build rule for target.
-sudoku/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\sudoku.dir\build.make CMakeFiles/sudoku.dir/build
-.PHONY : sudoku/fast
+minesweeper/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\minesweeper.dir\build.make CMakeFiles/minesweeper.dir/build
+.PHONY : minesweeper/fast
 
 Cell.obj: Cell.cpp.obj
 .PHONY : Cell.obj
 
 # target to build an object file
 Cell.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\sudoku.dir\build.make CMakeFiles/sudoku.dir/Cell.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\minesweeper.dir\build.make CMakeFiles/minesweeper.dir/Cell.cpp.obj
 .PHONY : Cell.cpp.obj
 
 Cell.i: Cell.cpp.i
@@ -141,7 +141,7 @@ Cell.i: Cell.cpp.i
 
 # target to preprocess a source file
 Cell.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\sudoku.dir\build.make CMakeFiles/sudoku.dir/Cell.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\minesweeper.dir\build.make CMakeFiles/minesweeper.dir/Cell.cpp.i
 .PHONY : Cell.cpp.i
 
 Cell.s: Cell.cpp.s
@@ -149,39 +149,39 @@ Cell.s: Cell.cpp.s
 
 # target to generate assembly for a file
 Cell.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\sudoku.dir\build.make CMakeFiles/sudoku.dir/Cell.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\minesweeper.dir\build.make CMakeFiles/minesweeper.dir/Cell.cpp.s
 .PHONY : Cell.cpp.s
 
-Sudoku.obj: Sudoku.cpp.obj
-.PHONY : Sudoku.obj
+Minesweeper.obj: Minesweeper.cpp.obj
+.PHONY : Minesweeper.obj
 
 # target to build an object file
-Sudoku.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\sudoku.dir\build.make CMakeFiles/sudoku.dir/Sudoku.cpp.obj
-.PHONY : Sudoku.cpp.obj
+Minesweeper.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\minesweeper.dir\build.make CMakeFiles/minesweeper.dir/Minesweeper.cpp.obj
+.PHONY : Minesweeper.cpp.obj
 
-Sudoku.i: Sudoku.cpp.i
-.PHONY : Sudoku.i
+Minesweeper.i: Minesweeper.cpp.i
+.PHONY : Minesweeper.i
 
 # target to preprocess a source file
-Sudoku.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\sudoku.dir\build.make CMakeFiles/sudoku.dir/Sudoku.cpp.i
-.PHONY : Sudoku.cpp.i
+Minesweeper.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\minesweeper.dir\build.make CMakeFiles/minesweeper.dir/Minesweeper.cpp.i
+.PHONY : Minesweeper.cpp.i
 
-Sudoku.s: Sudoku.cpp.s
-.PHONY : Sudoku.s
+Minesweeper.s: Minesweeper.cpp.s
+.PHONY : Minesweeper.s
 
 # target to generate assembly for a file
-Sudoku.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\sudoku.dir\build.make CMakeFiles/sudoku.dir/Sudoku.cpp.s
-.PHONY : Sudoku.cpp.s
+Minesweeper.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\minesweeper.dir\build.make CMakeFiles/minesweeper.dir/Minesweeper.cpp.s
+.PHONY : Minesweeper.cpp.s
 
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
 # target to build an object file
 main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\sudoku.dir\build.make CMakeFiles/sudoku.dir/main.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\minesweeper.dir\build.make CMakeFiles/minesweeper.dir/main.cpp.obj
 .PHONY : main.cpp.obj
 
 main.i: main.cpp.i
@@ -189,7 +189,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\sudoku.dir\build.make CMakeFiles/sudoku.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\minesweeper.dir\build.make CMakeFiles/minesweeper.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -197,7 +197,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\sudoku.dir\build.make CMakeFiles/sudoku.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\minesweeper.dir\build.make CMakeFiles/minesweeper.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -208,13 +208,13 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... sudoku
+	@echo ... minesweeper
 	@echo ... Cell.obj
 	@echo ... Cell.i
 	@echo ... Cell.s
-	@echo ... Sudoku.obj
-	@echo ... Sudoku.i
-	@echo ... Sudoku.s
+	@echo ... Minesweeper.obj
+	@echo ... Minesweeper.i
+	@echo ... Minesweeper.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

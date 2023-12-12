@@ -1,5 +1,5 @@
-#ifndef SUDOKU_H
-#define SUDOKU_H
+#ifndef MINESWEEPER_H
+#define MINESWEEPER_H
 
 #include <cstdlib>
 #include <algorithm>
@@ -9,7 +9,7 @@
 
 using std::size_t;
 
-class Sudoku
+class Minesweeper
 {
     private:
         Cell board[9][9];
@@ -19,7 +19,7 @@ class Sudoku
         void randomizeBoard();
 
     public:
-        Sudoku();
+        Minesweeper();
         void startGame();
         int getCellKeyValue(int row, int col);
         int getCellBoardValue(int row, int col);

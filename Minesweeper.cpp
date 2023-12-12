@@ -1,6 +1,6 @@
-#include "Sudoku.h"
+#include "Minesweeper.h"
 
-Sudoku::Sudoku()
+Minesweeper::Minesweeper()
 {
     int val = 0;
     for(int i = 0; i < 9; i++)
@@ -15,12 +15,12 @@ Sudoku::Sudoku()
     }
 }
 
-void Sudoku::startGame()
+void Minesweeper::startGame()
 {
     randomizeBoard();
 }
 
-void Sudoku::randomizeBoard()
+void Minesweeper::randomizeBoard()
 {
     srand(time(0));
     Cell temp[9];
@@ -52,17 +52,17 @@ void Sudoku::randomizeBoard()
     }
 }
 
-int Sudoku::getCellKeyValue(int row, int col)
+int Minesweeper::getCellKeyValue(int row, int col)
 {
     return board[row][col].getKeyVal();
 }
 
-int Sudoku::getCellBoardValue(int row, int col)
+int Minesweeper::getCellBoardValue(int row, int col)
 {
     return board[row][col].getBoardVal();
 }
 
-Cell* Sudoku::getCell(int row, int col)
+Cell* Minesweeper::getCell(int row, int col)
 {
     return &board[row][col];
 }

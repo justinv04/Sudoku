@@ -1,6 +1,6 @@
 #include <windows.h>
 #include "utilities.cpp"
-#include "Sudoku.h"
+#include "Minesweeper.h"
 #include <iostream>
 
 struct GameState
@@ -10,7 +10,7 @@ struct GameState
     int xPos, yPos;
     void* memory;
     BITMAPINFO bitmap_info;
-    Sudoku sudokuGame = Sudoku();
+    Minesweeper minesweeperGame = Minesweeper();
 };
 GameState gameState;
 
@@ -60,14 +60,14 @@ std::vector<int> getCellUnderMouse()
     return cellID;
 }
 
-LRESULT CALLBACK SudokuGameProcedure(HWND hWindowHandle, UINT Message, WPARAM wParam, LPARAM lParam)
+LRESULT CALLBACK MinesweeperGameProcedure(HWND hWindowHandle, UINT Message, WPARAM wParam, LPARAM lParam)
 {
     LRESULT result = 0;
     switch(Message)
     {
         case WM_CREATE:
         {
-            gameState.sudokuGame.startGame();
+            gameState.minesweeperGame.startGame();
             break;
         }
 
@@ -83,7 +83,7 @@ LRESULT CALLBACK SudokuGameProcedure(HWND hWindowHandle, UINT Message, WPARAM wP
             std::vector<int> cellID = getCellUnderMouse();
             if(cellID.at(0) == -1 || cellID.at(1) == -1)
                 break;
-            Cell* selectedCell = gameState.sudokuGame.getCell(cellID.at(0), cellID.at(1));
+            Cell* selectedCell = gameState.minesweeperGame.getCell(cellID.at(0), cellID.at(1));
             if(wParam - 48 >= 0 && wParam - 48 < 10)
                 selectedCell->setBoardVal(wParam - 48);
             break;
@@ -113,7 +113,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR args, int
     WNDCLASSW SudokuGameWindow = {};
     SudokuGameWindow.style = CS_HREDRAW | CS_VREDRAW;
     SudokuGameWindow.lpszClassName = L"Sudoku Game";
-    SudokuGameWindow.lpfnWndProc = SudokuGameProcedure;
+    SudokuGameWindow.lpfnWndProc = MinesweeperGameProcedure;
 
     RegisterClassW(&SudokuGameWindow);
 
